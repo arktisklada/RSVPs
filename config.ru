@@ -1,10 +1,3 @@
-require 'rubygems'
-require 'sinatra'
+require File.expand_path '../app.rb', __FILE__
 
-Sinatra::Application.default_options.merge!( 
-  run: false, 
-  env: :production 
-)
-
-load 'app.rb'
-run Sinatra.application
+run Sinatra::Application
