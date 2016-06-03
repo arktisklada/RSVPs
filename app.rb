@@ -60,6 +60,7 @@ get '/form' do
   <form method="post" action="/">
     <input name="rsvp[first_name]">
     <input name="rsvp[last_name]">
+    <input name="rsvp[email]">
     <select name="rsvp[meal_choice]">
       <option value="vegetarian">Vegetarian</option>
       <option value="meat">Meat</option>
@@ -75,5 +76,5 @@ def rsvp_params
     h.each do |k, v|
       h[k] = Sanitize.clean v
     end
-  end
+  end.merge(date: Time.now.to_s)
 end
