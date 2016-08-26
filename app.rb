@@ -39,8 +39,8 @@ end
 get '/' do
   response['Access-Control-Allow-Origin'] = '*'
 
-  first = rsvp_params['first_name']
-  last = rsvp_params['last_name']
+  first = rsvp_params['first_name'].strip
+  last = rsvp_params['last_name'].strip
   names = Guest.find(first, last).map {|n| "#{n["First Name"]} #{n["Last Name"]}" }
 
   json names.size > 0
